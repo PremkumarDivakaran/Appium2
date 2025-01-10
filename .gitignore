@@ -3,3 +3,8 @@ target
 *.idea
 *.ipr
 build
+.DS_Store
+.DS_Store
+*/.DS_Store
+*/.idea
+*/.gradle

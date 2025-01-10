@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="ParallelMethodSuite" parallel="methods" thread-count="3">
+<suite name="ParallelMethodSuite">
 
 <test name="SimpleSelenideTest">
   <classes>
-    <class name="org.learning.SelenideLearning"/>
+    <class name="com.test.SauceLabAndroidTest"/>
   </classes>
 </test>
 

@@ -9,25 +9,29 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>Appium2</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>com.codeborne</groupId>
-      <artifactId>selenide-appium</artifactId>
-      <version>6.19.1</version>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.25.0</version>
+    </dependency>
+    <dependency>
+      <groupId>io.appium</groupId>
+      <artifactId>java-client</artifactId>
+      <version>9.3.0</version>
     </dependency>
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>selenide</artifactId>
-      <version>6.19.1</version>
+      <version>7.7.0</version>
     </dependency>
     <dependency>
       <groupId>org.testng</groupId>
@@ -35,6 +39,28 @@
       <version>7.10.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.24.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.14.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.26.3</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.browserstack</groupId>
+      <artifactId>browserstack-java-sdk</artifactId>
+      <version>LATEST</version>
+    </dependency>
+
   </dependencies>
 
   <build>

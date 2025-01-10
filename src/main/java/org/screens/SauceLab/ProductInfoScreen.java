@@ -1,28 +1,31 @@
 package org.screens.SauceLab;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.appium.ScreenObject.screen;
+import static org.driver.DriverInstance.getDriver;
+
 
 public class ProductInfoScreen {
 
     @AndroidFindBy(accessibility = "Add To Cart button")
     private WebElement addToCart;
+    By addToCartBtn = By.xpath("//android.widget.TextView[@text=\"Add To Cart\"]");
 
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"cart badge\"]/android.widget.ImageView")
     private WebElement openCart;
+    By openCartIcon = By.xpath("//android.view.ViewGroup[@content-desc=\"cart badge\"]/android.widget.ImageView");
 
     public ProductInfoScreen clickAddToCart(){
-        $(addToCart).shouldBe(visible).click();
-        return screen(ProductInfoScreen.class);
+        getDriver().findElement(addToCartBtn).click();
+        //$(addToCart).shouldBe(visible).click();
+        return this;
     }
 
     public CheckOutScreen openCart(){
-        $(openCart).shouldBe(visible).click();
-        return screen(CheckOutScreen.class);
+        getDriver().findElement(openCartIcon).click();
+        //$(openCart).shouldBe(visible).click();
+        return new CheckOutScreen();
     }
-
 
 }

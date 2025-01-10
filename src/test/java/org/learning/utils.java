@@ -29,15 +29,12 @@ public class utils {
                 .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
 
         driver.perform(Collections.singletonList(doubleTap));
-
-
     }
 
     //add private method to get center of element
     private Point getCenter(WebElement element){
         Point point = element.getLocation();
         Dimension dim = element.getSize();
-
         return new Point(point.getX() + dim.getWidth()/2, point.getY() + dim.getHeight()/2);
     }
 

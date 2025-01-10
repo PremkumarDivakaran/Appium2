@@ -1,0 +1,19 @@
+userName: premkumardivakar_OfPs0o
+accessKey: EcwoBo8iDeVzVMCYGMYg
+framework: java
+app: bs://7d8fa0f700b22b33b2da6a2776d76ef6184743e5
+platforms:
+  - platformName: android
+    deviceName: Samsung Galaxy Note 20 Ultra
+    platformVersion: 10.0
+  - platformName: android
+    deviceName: Samsung Galaxy S23 Ultra
+    platformVersion: 13.0
+  - platformName: android
+    deviceName: Samsung Galaxy A52
+    platformVersion: 11.0
+browserstackLocal: true
+buildName: sauce-labs-app
+projectName: BrowserStack Sample
+debug: true
+networkLogs: true

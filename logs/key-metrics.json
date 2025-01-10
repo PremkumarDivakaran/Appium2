@@ -1,0 +1,53 @@
+[ {
+  "duration" : 0.00754198431968689,
+  "eventName" : "sdk:pre-test",
+  "startTime" : 2.05101405313208E8,
+  "success" : true,
+  "worker" : 1,
+  "failure" : null,
+  "details" : null,
+  "entryType" : "measure",
+  "platform" : 0,
+  "command" : null,
+  "testName" : null,
+  "hookType" : ""
+}, {
+  "duration" : 0.01124998927116394,
+  "eventName" : "sdk:post-test",
+  "startTime" : 2.05121791659916E8,
+  "success" : true,
+  "worker" : 1,
+  "failure" : null,
+  "details" : null,
+  "entryType" : "measure",
+  "platform" : 0,
+  "command" : null,
+  "testName" : null,
+  "hookType" : ""
+}, {
+  "duration" : 0.005625009536743164,
+  "eventName" : "sdk:pre-test",
+  "startTime" : 2.05870312154791E8,
+  "success" : true,
+  "worker" : 1,
+  "failure" : null,
+  "details" : null,
+  "entryType" : "measure",
+  "platform" : 0,
+  "command" : null,
+  "testName" : null,
+  "hookType" : ""
+}, {
+  "duration" : 0.009458005428314209,
+  "eventName" : "sdk:post-test",
+  "startTime" : 2.05871063693083E8,
+  "success" : true,
+  "worker" : 1,
+  "failure" : null,
+  "details" : null,
+  "entryType" : "measure",
+  "platform" : 0,
+  "command" : null,
+  "testName" : null,
+  "hookType" : ""
+} ]
