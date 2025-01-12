@@ -1,4 +1,4 @@
-package org.framework;
+package org.enums;
 
 public enum PlatformType {
     ANDROID,

@@ -5,7 +5,7 @@ import org.driver.manager.AndroidDriverManager;
 import org.driver.manager.DriverManager;
 import org.driver.manager.IosDriverManager;
 import org.exceptions.PlatformException;
-import org.framework.PlatformType;
+import org.enums.PlatformType;
 
 public class DriverFactory {
 

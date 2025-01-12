@@ -3,7 +3,7 @@ package org.driver.factory;
 
 import org.driver.manager.*;
 import org.exceptions.PlatformException;
-import org.framework.PlatformType;
+import org.enums.PlatformType;
 
 public class BrowserStackDriverFactory {
 

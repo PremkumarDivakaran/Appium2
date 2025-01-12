@@ -1,49 +1,12 @@
 package org.learning;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.google.common.collect.ImmutableMap;
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
-import org.openqa.selenium.*;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.interactions.Pause;
-import org.openqa.selenium.interactions.PointerInput;
-import org.openqa.selenium.interactions.Sequence;
-import org.openqa.selenium.remote.RemoteWebElement;
-import org.provider.SauceLabAndroidAppProvider;
-import org.screens.SauceLab.HomeScreen;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-import org.utils.AppiumServerManager;
-import static org.assertj.core.api.Assertions.assertThat;
-import java.awt.*;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.time.Duration;
-import java.util.Arrays;
-import java.util.Map;
-
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import java.util.Collections;
-
 public class TestRunner {
 
-    AppiumDriverLocalService service;
+    /*AppiumDriverLocalService service;
 
     //@Test
     public void androidAppLaunch() {
-        /*Configuration.browser = SauceLabAndroidAppProvider.class.getName();
+        *//*Configuration.browser = SauceLabAndroidAppProvider.class.getName();
         SelenideAppium.launchApp();
         HomeScreen homeScreen = screen(HomeScreen.class);
         String productPrice = homeScreen.getProductPrice();
@@ -53,9 +16,9 @@ public class TestRunner {
                 .clickAddToCart()
                 .openCart()
                 .getTotalPrice();
-        System.out.println(totalPrice);*/
+        System.out.println(totalPrice);*//*
 
-        /*String productPrice = $(By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]/../following-sibling::android.widget.TextView")).getText();
+        *//*String productPrice = $(By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]/../following-sibling::android.widget.TextView")).getText();
         System.out.println(productPrice);
         $(By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]")).click();
 
@@ -65,7 +28,7 @@ public class TestRunner {
         String totalPrice = $(By.xpath("//android.widget.TextView[@content-desc=\"total price\"]")).getText();
         System.out.println(totalPrice);
 
-        Assert.assertEquals(productPrice, totalPrice);*/
+        Assert.assertEquals(productPrice, totalPrice);*//*
 
 
         $(By.xpath("//android.view.ViewGroup[@content-desc=\"open menu\"]/android.widget.ImageView")).click();
@@ -76,24 +39,24 @@ public class TestRunner {
 
     }
 
-    @BeforeClass
+    //@BeforeClass
     public void startAppiumServer(){
-        /*service = new AppiumServiceBuilder()
+        *//*service = new AppiumServiceBuilder()
                 .usingPort(4723)
                 .build();
-        service.start();*/
+        service.start();*//*
 
-        /*service = new AppiumServiceBuilder()
+        *//*service = new AppiumServiceBuilder()
                 //.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"))
                 .withAppiumJS(new File("/opt/homebrew/lib/node_modules/appium/build/lib/main.js"))
                 .withIPAddress("127.0.0.1")
                 .usingPort(4723)
                 .build();
-        service.start();*/
+        service.start();*//*
         AppiumServerManager.getInstance().startAppiumServer();
     }
 
-    @AfterClass
+    //@AfterClass
     public void quitAppiumServer(){
         //service.stop();
         AppiumServerManager.getInstance().stopAppiumServer();
@@ -101,7 +64,7 @@ public class TestRunner {
 
     //@Test
     public void launchAndroidApp(){
-        /*Configuration.browser = SauceLabAndroidAppProvider.class.getName();
+        *//*Configuration.browser = SauceLabAndroidAppProvider.class.getName();
         SelenideAppium.launchApp();
 
         HomeScreen homeScreen = screen(HomeScreen.class);
@@ -113,7 +76,7 @@ public class TestRunner {
                 .openCart()
                 .getTotalPrice();
         System.out.println(totalPrice);
-        Assert.assertEquals(productPrice, totalPrice);*/
+        Assert.assertEquals(productPrice, totalPrice);*//*
     }
 
 
@@ -162,13 +125,12 @@ public class TestRunner {
     }
 
     @Test
-    public void testRunner() throws MalformedURLException {
-        String apkPath = System.getProperty("user.dir") +
-                "/src/test/resources/ApiDemos-debug.apk";
+    public void testRunner() throws MalformedURLException, URISyntaxException {
+        String apkPath = System.getProperty("user.dir") + "/src/test/resources/ApiDemos-debug.apk";
         UiAutomator2Options options = new UiAutomator2Options();
         options.setDeviceName("My_Android_Device");
         options.setApp(apkPath);
-        AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+        WebDriver driver = new AndroidDriver(new URI("http://127.0.0.1:4723").toURL(), options);
 
         driver.findElement(AppiumBy.accessibilityId("Views")).click();
         driver.findElement(AppiumBy.accessibilityId("Expandable Lists")).click();
@@ -203,6 +165,6 @@ public class TestRunner {
                 "duration", 1000
         ));
         assertThat(child0.isDisplayed()).isTrue();
-    }
+    }*/
 
 }

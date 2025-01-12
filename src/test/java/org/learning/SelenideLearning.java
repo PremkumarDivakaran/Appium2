@@ -1,15 +1,9 @@
 package org.learning;
 
-import com.codeborne.selenide.Configuration;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.title;
 
 public class SelenideLearning {
 
-    @BeforeClass
+    /*@BeforeClass
     public void setUpConfig() {
         Configuration.browser = "chrome";
         Configuration.headless = true;
@@ -39,5 +33,5 @@ public class SelenideLearning {
     public void testMethod3() {
         open("https://www.github.com");
         assert title().contains("GitHub");
-    }
+    }*/
 }

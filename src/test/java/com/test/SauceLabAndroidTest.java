@@ -1,7 +1,6 @@
 package com.test;
 
-import org.driver.DriverInstance;
-import org.framework.PlatformType;
+import org.config.ConfigManager;
 import org.screens.SauceLab.HomeScreen;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -30,6 +29,11 @@ public class SauceLabAndroidTest extends BaseTest {
                 .openCart()
                 .getTotalPrice();
         assertThat(productPrice).isEqualTo(totalPrice);
+    }
+
+    @Test
+    public void runner(){
+        System.out.println("Test running");
     }
 
 }
