@@ -18,6 +18,7 @@ public class AppiumServerManager {
                 .withIPAddress("127.0.0.1")
                 .usingPort(4723)
                 .withArgument(() -> "--log-level", "error")
+                .withArgument(() -> "--use-plugins", "element-wait")
                 .withLogFile(new File(System.getProperty("user.dir") + "/appium.log"))
                 .build();
     }

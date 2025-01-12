@@ -3,6 +3,7 @@ package com.saucelab.test;
 import com.saucelab.config.ConfigManager;
 import com.saucelab.driver.DriverInstance;
 import com.saucelab.enums.RunMode;
+import com.saucelab.screens.HomeScreen;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -24,4 +25,9 @@ public class BaseTest {
     public void setupDriver(){
         DriverInstance.setDriver(ConfigManager.getConfig().platform());
     }
+
+    public HomeScreen launchApp(){
+        return new HomeScreen();
+    }
+
 }
