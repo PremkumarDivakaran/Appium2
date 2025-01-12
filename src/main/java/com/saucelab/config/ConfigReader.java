@@ -9,6 +9,7 @@ import com.saucelab.enums.RunMode;
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources(
         {
+                "system:properties",
                 "file:${user.dir}/src/test/resources/config.properties"
         }
 )
