@@ -8,3 +8,4 @@ build
 */.idea
 */.gradle
 src/test/java/org/learning/
+target/
