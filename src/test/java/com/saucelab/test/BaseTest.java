@@ -1,9 +1,11 @@
 package com.saucelab.test;
 
 import com.saucelab.config.ConfigManager;
-import com.saucelab.driver.DriverInstance;
+import static com.saucelab.driver.DriverInstance.getDriver;
+import static com.saucelab.driver.DriverInstance.setDriver;
 import com.saucelab.enums.RunMode;
 import com.saucelab.screens.HomeScreen;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -23,7 +25,12 @@ public class BaseTest {
 
     @BeforeMethod
     public void setupDriver(){
-        DriverInstance.setDriver(ConfigManager.getConfig().platform());
+        setDriver(ConfigManager.getConfig().platform());
+    }
+
+    @AfterMethod
+    public void quitDriver(){
+        getDriver().quit();
     }
 
     public HomeScreen launchApp(){
