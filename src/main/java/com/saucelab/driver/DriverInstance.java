@@ -6,7 +6,7 @@ import com.saucelab.driver.factory.DriverFactory;
 import com.saucelab.driver.manager.DriverManager;
 import com.saucelab.enums.PlatformType;
 import com.saucelab.enums.RunMode;
-import org.openqa.selenium.WebDriver;
+import io.appium.java_client.AppiumDriver;
 
 public class DriverInstance {
 
@@ -19,7 +19,7 @@ public class DriverInstance {
             BrowserStackDriverFactory.setDriver(platformType).setPlatformDriver();
     }
 
-    public static WebDriver getDriver(){
+    public static AppiumDriver getDriver(){
         return DriverManager.getDriver();
     }
 

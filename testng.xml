@@ -3,7 +3,7 @@
 
 <test name="SimpleSelenideTest">
   <classes>
-    <class name="com.saucelab.test.SauceLabAndroidTest"/>
+    <class name="com.saucelab.test.SauceLabTest"/>
   </classes>
 </test>
 

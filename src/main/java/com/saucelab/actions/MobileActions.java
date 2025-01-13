@@ -1,12 +1,5 @@
 package com.saucelab.actions;
 
-import com.saucelab.config.ConfigManager;
-import com.saucelab.enums.PlatformType;
-import io.appium.java_client.android.AndroidDriver;
-import static com.saucelab.driver.DriverInstance.getDriver;
-
-import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
@@ -18,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Collections;
+
+import static com.saucelab.driver.DriverInstance.getDriver;
 
 public class MobileActions {
 
@@ -41,14 +36,11 @@ public class MobileActions {
                 .addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
                 .addAction(new Pause(finger, Duration.ofMillis(100)))
                 .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        if(ConfigManager.getConfig().platform() == PlatformType.ANDROID)
-            ((AndroidDriver)getDriver()).perform(Collections.singletonList(doubleTap));
-        else if(ConfigManager.getConfig().platform() == PlatformType.IOS)
-            ((IOSDriver)getDriver()).perform(Collections.singletonList(doubleTap));
+        getDriver().perform(Collections.singletonList(doubleTap));
     }
 
     public static void scroll(){
-        Dimension size = ((AndroidDriver)getDriver()).manage().window().getSize();
+        Dimension size = getDriver().manage().window().getSize();
         int startX = size.getWidth() / 2;
         int startY = size.getHeight() / 2;
         int endX = startX;
@@ -60,21 +52,20 @@ public class MobileActions {
                 .addAction(new Pause(finger, Duration.ofMillis(200)))
                 .addAction(finger.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), endX, endY))
                 .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        ((AndroidDriver)getDriver()).perform(Collections.singletonList(scroll));
+        getDriver().perform(Collections.singletonList(scroll));
     }
 
-    public static void scrollForElement(By by, int timeOut){
-        AndroidDriver driver = ((AndroidDriver)getDriver());
-        Dimension size = driver.manage().window().getSize();
+    public static void scrollForElement(WebElement element, int timeOut){
+        Dimension size = getDriver().manage().window().getSize();
         int startX = size.getWidth() / 2;
         int startY = size.getHeight() / 2;
         int endX = startX;
         int endY = (int) (size.getHeight() * 0.25);
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOut));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(timeOut));
         while(true){
             try {
-                WebElement ele = wait.until(ExpectedConditions.visibilityOf(driver.findElement(by)));
+                WebElement ele = wait.until(ExpectedConditions.visibilityOf(element));
                 if(ele.isDisplayed()) break;
             }
             catch (Exception e){
@@ -86,10 +77,8 @@ public class MobileActions {
                     .addAction(new Pause(finger, Duration.ofMillis(200)))
                     .addAction(finger.createPointerMove(Duration.ofMillis(100), PointerInput.Origin.viewport(), endX, endY))
                     .addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-            driver.perform(Collections.singletonList(scroll));
+            getDriver().perform(Collections.singletonList(scroll));
         }
     }
-
-
 
 }

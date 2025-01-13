@@ -4,7 +4,7 @@ import com.saucelab.screens.HomeScreen;
 import org.testng.annotations.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class SauceLabAndroidTest extends BaseTest {
+public class SauceLabTest extends BaseTest {
 
     @Test
     public void checkBackPackProductPriceAfterCheckout() {

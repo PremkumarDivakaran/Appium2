@@ -1,52 +1,61 @@
 package com.saucelab.screens;
 
 import com.saucelab.actions.MobileActions;
-import org.openqa.selenium.By;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.WebElement;
 
-import static com.saucelab.driver.DriverInstance.getDriver;
 
+public class HomeScreen extends BaseScreen {
 
-public class HomeScreen {
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]")
+    @iOSXCUITFindBy(accessibility = "Sauce Labs Backpack")
+    private WebElement backPackProductName;
 
-    /*@AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]")
-    private WebElement sauceLabProductName;*/
-    By backPackProductName= By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]");
-    By tShirtProductName= By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Bolt T-Shirt\"]");
-    By onesieProductName= By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Onesie\"]");
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]/../following-sibling::android.widget.TextView")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"store item price\" and @label=\"$29.99\"]")
+    private WebElement backPackProductPrice;
 
-    /*@AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]/../following-sibling::android.widget.TextView")
-    private WebElement sauceLabProductPrice;*/
-    By backPackProductPrice = By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Backpack\"]/../following-sibling::android.widget.TextView");
-    By tShirtProductPrice = By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Bolt T-Shirt\"]/../following-sibling::android.widget.TextView");
-    By onesieProductPrice = By.xpath("//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Onesie\"]/../following-sibling::android.widget.TextView");
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Bolt T-Shirt\"]")
+    @iOSXCUITFindBy(accessibility = "Sauce Labs Bolt T-Shirt")
+    private WebElement tShirtProductName;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Bolt T-Shirt\"]/../following-sibling::android.widget.TextView")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"store item price\" and @label=\"$15.99\"]")
+    private WebElement tShirtProductPrice;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Onesie\"]")
+    @iOSXCUITFindBy(accessibility = "Sauce Labs Onesie")
+    private WebElement onesieProductName;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@content-desc=\"store item text\" and @text=\"Sauce Labs Onesie\"]/../following-sibling::android.widget.TextView")
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[@name=\"store item price\" and @label=\"$7.99\"]")
+    private WebElement onesieProductPrice;
 
     public String getBackPackProductPrice(){
-        return getDriver().findElement(backPackProductPrice).getText();
-        //return $(sauceLabProductPrice).shouldBe(visible).getText();
+        return backPackProductPrice.getText();
     }
 
     public String getTshirtProductPrice(){
-        return getDriver().findElement(tShirtProductPrice).getText();
-        //return $(sauceLabProductPrice).shouldBe(visible).getText();
+        return tShirtProductPrice.getText();
     }
 
     public String getOnesieProductPrice(){
-        return getDriver().findElement(onesieProductPrice).getText();
+        return onesieProductPrice.getText();
     }
 
     public ProductInfoScreen clickBackPackProduct(){
-        getDriver().findElement(backPackProductName).click();
-        //$(sauceLabProductName).shouldBe(visible).click();
+        backPackProductName.click();
         return new ProductInfoScreen();
     }
 
     public ProductInfoScreen clickTshirtProduct(){
-        getDriver().findElement(tShirtProductName).click();
+        tShirtProductName.click();
         return new ProductInfoScreen();
     }
 
     public ProductInfoScreen clickOnesieProduct(){
-        getDriver().findElement(onesieProductName).click();
+        onesieProductName.click();
         return new ProductInfoScreen();
     }
 
