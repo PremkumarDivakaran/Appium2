@@ -2,9 +2,9 @@
 *.idea
 *.ipr
 build
-.DS_Store
-*/.DS_Store
+*.DS_Store
 */.idea
 */.gradle
 src/test/java/com/learning/
 target/
+logs/

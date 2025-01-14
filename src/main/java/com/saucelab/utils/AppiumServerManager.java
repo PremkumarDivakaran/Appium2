@@ -1,5 +1,6 @@
 package com.saucelab.utils;
 
+import com.saucelab.logger.FrameworkLogger;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
