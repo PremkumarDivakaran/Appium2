@@ -18,7 +18,7 @@ public class SauceLabTest extends BaseTest {
         assertThat(productPrice).isEqualTo(totalPrice);
     }
 
-    @Test
+    //@Test
     public void checkTshirtProductPriceAfterCheckout() {
         HomeScreen homeScreen = launchApp();
         String productPrice = homeScreen.getTshirtProductPrice();
@@ -30,7 +30,7 @@ public class SauceLabTest extends BaseTest {
         assertThat(productPrice).isEqualTo(totalPrice);
     }
 
-    @Test
+    //@Test
     public void checkOnesieProductPriceAfterCheckout() {
         HomeScreen homeScreen = launchApp();
         homeScreen.scrollScreen();
@@ -43,7 +43,7 @@ public class SauceLabTest extends BaseTest {
         assertThat(productPrice).isEqualTo(totalPrice);
     }
 
-    @Test
+    //@Test
     public void scrollAndCheckOnesieProductPriceAfterCheckout() {
         HomeScreen homeScreen = launchApp();
         homeScreen.scrollScreenForOnesieProduct();

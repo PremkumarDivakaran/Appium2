@@ -1,18 +1,19 @@
 package com.saucelab.driver.manager;
 
-import io.appium.java_client.android.AndroidDriver;
 import com.saucelab.exceptions.UrlException;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import org.openqa.selenium.MutableCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.HashMap;
 
 public class BrowserStackAndroidDriverManager extends DriverManager {
 
     @Override
     public void setPlatformDriver() {
+        /*
         DesiredCapabilities capabilities = new DesiredCapabilities();
         String browserstackUsername = System.getenv("BROWSERSTACK_USERNAME");
         String browserstackAccessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
@@ -33,6 +34,15 @@ public class BrowserStackAndroidDriverManager extends DriverManager {
         } catch (URISyntaxException | MalformedURLException e) {
             throw new UrlException(e.getMessage());
         }
+         */
+
+        MutableCapabilities capabilities = new UiAutomator2Options();
+        try {
+            driver.set(new AndroidDriver(new URI("http://127.0.0.1:4723/wd/hub").toURL(),capabilities));
+        } catch (URISyntaxException | MalformedURLException e) {
+            throw new UrlException(e.getMessage());
+        }
+
     }
 
 }
