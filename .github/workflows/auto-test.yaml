@@ -23,10 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: BROWSER_STACK
 
-    env:
-      BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
-      BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-
     steps:
       # Checkout the repository
       - name: Checkout Code
@@ -54,10 +50,16 @@ jobs:
 
       # Run Tests for Android
       - name: Run Tests for Android
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.USER_NAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         run: mvn clean test -Dbrowserstack.config="browserstack/local_browserstack_android.yml" -Dplatform=ANDROID
 
       # Run Tests for iOS
       - name: Run Tests for iOS
+        env:
+          BROWSERSTACK_USERNAME: ${{ secrets.USER_NAME }}
+          BROWSERSTACK_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
         run: mvn clean test -Dbrowserstack.config="browserstack/local_browserstack_ios.yml" -Dplatform=IOS
 
       # Run Maven Tests with BrowserStack
